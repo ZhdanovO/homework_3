@@ -86,6 +86,32 @@ public class Main {
         }
 
         //task 7
-        
+        float loanRate = 0.1f;
+        age = 25;
+        salary = 60000;
+        int wantedSum = 330000;
+        int maxPayment = salary / 2;
+
+        if (age < 23) {
+            loanRate = loanRate + 0.01f;
+        } else if (age < 30) {
+            loanRate = loanRate + 0.005f;
+        }
+
+        if (salary > 80000) {
+            loanRate = loanRate - 0.007f;
+        }
+
+        float loanPayment = (wantedSum * (loanRate + 1))/12;
+        String loanDecision = "";
+
+        if (loanPayment >= maxPayment) {
+            loanDecision = "Отказано";
+        } else {
+            loanDecision = "Одобрено";
+        }
+
+        System.out.println("Максимальный платеж при ЗП " + salary + " равен " + maxPayment + " рублей. \n" +
+                "Платеж по кредиту " + loanPayment + " рублей. " + loanDecision +".");
     }
 }
